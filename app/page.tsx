@@ -3,14 +3,14 @@ import { useEffect, useState } from 'react';
 import HeroSection from './components/HeroSection'
 import './globals.css';
 export default function Home() {
-  const [showContent, setShowContent] = useState(false);
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 3000);
+  // const [showContent, setShowContent] = useState(false);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowContent(true);
+  //   }, 3000);
 
-    return () => clearTimeout(timer);
-  }, []); 
+  //   return () => clearTimeout(timer);
+  // }, []); 
 
   return (
     <div className='relative'>

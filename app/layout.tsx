@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Navigation from "./components/Navigation"; // Import the client component
+// import Navigation from "./components/Navigation"; // Import the client component
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
