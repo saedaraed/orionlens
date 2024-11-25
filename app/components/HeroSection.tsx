@@ -1,5 +1,4 @@
 import { useEffect, useState, useRef } from "react";
-import Navigation from "./Navigation";
 import '../globals.css';
 
 export default function HeroSection() {
