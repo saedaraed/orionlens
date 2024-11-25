@@ -2,7 +2,6 @@
 import { useEffect, useState } from 'react';
 import HeroSection from './components/HeroSection'
 import './globals.css';
-import AnimationCover from './components/AnimationCover';
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
   useEffect(() => {
