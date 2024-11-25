@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "../globals.css";
+import Image from "next/image";
 
 export default function HeroSection() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null); // تعريف مرجع للإطار المدمج
@@ -102,7 +103,7 @@ export default function HeroSection() {
                 animation: "moveImage 2s ease-out",
               }}
             >
-              <img src="/images/sample.png" alt="Sample" />
+              <Image src="/images/sample.png" alt="Sample" />
             </div>
           )}
 
