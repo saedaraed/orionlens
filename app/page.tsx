@@ -1,32 +1,24 @@
-"use client"; 
-// import { useEffect, useState } from 'react';
-import HeroSection from './components/HeroSection'
-import './globals.css';
-export default function Home() {
-  // const [showContent, setShowContent] = useState(false);
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowContent(true);
-  //   }, 3000);
+"use client";
+import "./globals.css";
+import About from "./components/About";
+import HeroSection from "./components/HeroSection";
+import Services from "./components/Services";
+import WorksSection from "./components/WorksSection";
+import Contact from "./components/Contact";
+import TrustUs from "./components/TrustUs";
 
-  //   return () => clearTimeout(timer);
-  // }, []); 
+
+export default function Home() {
 
   return (
-    <div className='relative'>
-    {/* {!showContent?(      <div className="flex bg-red-500  h-screen w-full overflow-hidden" >
-      <div className="one w-full  bg-black animate-slideDown delay-100"></div>
-      <div className="two w-full bg-black animate-slideUp delay-300"></div>
-      <div className="three w-full bg-black animate-slideDown delay-500"></div>
-      <div className="four w-full  bg-black animate-slideUp delay-700"></div>
-      <div className="five w-full bg-black animate-slideDown delay-900"></div>
-      <div className="six w-full  bg-black animate-slideUp delay-1100"></div>
-    </div>):
-      (  <div className="font-[family-name:var(--font-geist-sans)]">
-        <HeroSection/>
-  </div>)} */}
-  <HeroSection/>
-  </div>
+    <div className="relative">
+  <HeroSection />
+      <About  id="about" />
+      <Services id="services"/> 
+      <TrustUs id="trust"/>
+      <WorksSection id="works"/>
+      <Contact/>
+     
+    </div>
   );
-  
 }
