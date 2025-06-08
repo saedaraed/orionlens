@@ -1,3 +1,9 @@
+"use client";
+import { useInView } from "@/hooks/useInView";
+import { motion } from "framer-motion";
+type SectionProps = {
+  id: string;
+};
 const cards = [
   {
     icon: (
@@ -67,48 +73,46 @@ const cards = [
       "Tailored service with flexibility, support, and on-time delivery.",
   },
 ];
-const OurFeatures =()=>{
-    return(
-       <section className="container mx-auto px-4 relative z-10  font-cairo mt-[100px]">
-        <div
-          className="
-          grid 
-          grid-cols-1 
-          sm:grid-cols-3 
-          gap-6
-          items-stretch
-        "
-        >
-          {/* الكاردز */}
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className={`bg-[#1A1A1A] p-6 relative flex flex-col justify-between font-cairo ${
-                idx === 1 ? "border-4 border-heading" : ""
-              }`}
-              style={{ minHeight: "100%" }}
-            >
-              {/* العمود العمودي تحت البوردر (فقط للكارد الأوسط) */}
-              {idx === 1 && (
-                <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-1 h-12 bg-heading" />
-              )}
-              <div className="icon-wrapper w-16 h-16 flex justify-center items-center">
-  {card.icon}
-</div>
-              
-              <h3 className="text-white text-[25px] font-semibold mt-6">
-                {card.title}
-              </h3>
-              <div className="border border-heading w-[125px] h-[4px] bg-heading my-4"></div>
-
-              <p className="text-white/80 flex-grow text-[20px]">{card.content}</p>
-
+const OurFeatures: React.FC<SectionProps> = ({ id }) => {
+    const [ref, isInView] = useInView();
+  
+  return (
+    <section
+      id={id}
+      ref={ref}
+      className="container mx-auto px-4 relative z-10 mt-[100px]"
+    >
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
+        {cards.map((card, idx) => (
+          <motion.div        initial={{ opacity: 0, y: 40 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            key={idx}
+            className={`bg-[#1A1A1A] p-6 relative flex flex-col justify-between ${
+              idx === 1 ? "border-4 border-heading" : ""
+            }`}
+            style={{ minHeight: "100%" }}
+          >
+            {idx === 1 && (
+              <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 w-1 h-12 bg-heading" />
+            )}
+            <div className="icon-wrapper w-16 h-16 flex justify-center items-center">
+              {card.icon}
             </div>
-          
-          ))}
-        </div>
-      </section>
-    )
-}
+
+            <h3 className="text-white text-[22px] font-bold mt-6">
+              {card.title}
+            </h3>
+            <div className="border border-heading w-[125px] h-[4px] bg-heading my-4"></div>
+
+            <p className="text-white/80 flex-grow text-[20px]">
+              {card.content}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+};
 
 export default OurFeatures;

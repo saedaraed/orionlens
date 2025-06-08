@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 // import Navigation from "./components/Navigation";
 import { Inter, Nunito , Cairo } from 'next/font/google'
-import PageWrapper from "./components/PageWrapper";
 import Navbar from "./components/Navbar";
+import FooterWithContact from "./components/Footer";
 // import Footer from "./components/Footer";
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
@@ -29,10 +29,10 @@ export default function RootLayout({
         className={`${cairo.variable} ${inter.variable} ${nunito.variable} antialiased`}
       >
         {/* Use Navigation client component */}
-
+<Navbar/>
   {children}
 
-{/* <Footer/> */}
+<FooterWithContact/>
       </body>
     </html>
   );

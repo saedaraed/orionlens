@@ -1,4 +1,7 @@
-import FooterWithContact from "../components/Footer";
+export const metadata = {
+  title: "Terms and Conditions | OrionLens",
+  description: "Read the terms and conditions for using the OrionLens website and services.",
+};
 import Navbar from "../components/Navbar";
 
 const Terms = () => {
@@ -71,7 +74,6 @@ We reserve the right to update or modify these terms at any time. Changes will b
         </div>
       </div>
 
-      <FooterWithContact/>
     </main>
   );
 };

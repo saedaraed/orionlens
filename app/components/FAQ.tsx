@@ -2,7 +2,9 @@
 
 import * as Accordion from "@radix-ui/react-accordion";
 import { useState } from "react";
-
+type SectionProps = {
+  id?: string;
+};
 const faqs = [
   {
     number: "01",
@@ -47,25 +49,25 @@ const PlusIcon = ({ color = "white" }) => (
   </svg>
 );
 
-const MinusIcon = ({ color = "black" }) => (
+const MinusIcon = ({ color = "white" }) => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
     <path d="M5 12h14" stroke={color} strokeWidth="2" strokeLinecap="round" />
   </svg>
 );
 
-export default function FAQ() {
+const FAQ: React.FC<SectionProps> = ({ id }) => {
   const [openItem, setOpenItem] = useState<string | null>(null);
 
   return (
-    <section>
-<div className="flex flex-col items-start justify-start text-left w-fit mx-auto mb-10">
+    <section id={id} className="mt-[100px]">
+      <div className="flex flex-col items-start justify-start text-left w-fit mx-auto mb-10 px-4">
         <span className="text-heading">FAQ</span>
-        <h2 className="text-[48px] font-bold text-white">
+        <h2 className="md:text-[48px] text-[38px] font-bold text-white">
           FREQUENTLY ASK <span className="text-heading">QUESTONS</span>?{" "}
         </h2>
         <div className="border border-heading w-[125px] h-[4px] bg-heading mt-2"></div>
       </div>
-      <div className="w-full max-w-4xl mx-auto">
+      <div className="w-full max-w-4xl mx-auto px-4">
         <Accordion.Root
           type="single"
           collapsible
@@ -88,21 +90,21 @@ export default function FAQ() {
               >
                 <Accordion.Header>
                   <div className="flex h-full">
-                    <Accordion.Trigger className="flex justify-between items-stretch w-full px-0 font-cairo">
+                    <Accordion.Trigger className="flex justify-between items-stretch w-full px-0 ">
                       <div className="flex items-center w-full">
                         {/* الرقم */}
-                        <span className="text-white w-16 py-4 text-center text-[25px] font-cairo font-medium ">
+                        <span className="text-white w-16 py-4 text-center md:text-[25px] text-[20px] font-medium ">
                           {faq.number}
                         </span>
                         {/* السؤال */}
-                        <span className="flex-1 px-4 py-4 text-white text-left text-[25px] font-cairo font-medium">
+                        <span className="flex-1 px-4 py-4 text-white text-left md:text-[22px] text-[20px] font-medium">
                           {faq.question}
                         </span>
                       </div>
                       {/* زر الفتح/الإغلاق */}
                       <div
                         className={`w-16 flex items-center justify-center ${
-                          isOpen ? "bg-[#570909]" : "bg-[#1A1A1A]"
+                          isOpen ? "bg-heading" : "bg-[#1A1A1A]"
                         }`}
                       >
                         {isOpen ? <MinusIcon /> : <PlusIcon />}
@@ -120,4 +122,6 @@ export default function FAQ() {
       </div>
     </section>
   );
-}
+};
+
+export default FAQ;

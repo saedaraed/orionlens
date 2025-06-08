@@ -1,4 +1,7 @@
-import FooterWithContact from "../components/Footer";
+export const metadata = {
+  title: "Privacy Policy | OrionLens",
+  description: "Learn how OrionLens collects, uses, and protects your personal information.",
+};
 import Navbar from "../components/Navbar";
 
 const Privacy = () => {
@@ -31,7 +34,7 @@ const Privacy = () => {
           <h3 className="text-[25px] font-medium mb-2">Disclaimer</h3>
           <ul className="text-[20px] text-white/80">
             <li>
-              The website and its content are provided "as is" without any
+              The website and its content are provided &quot;as is&quot; without any
               warranties, express or implied.
             </li>
             <li>
@@ -60,7 +63,7 @@ const Privacy = () => {
         </div>
       </div>
 
-      <FooterWithContact/>
+      
     </main>
   );
 };
