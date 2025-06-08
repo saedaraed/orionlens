@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,6 +126,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
+          <LanguageSwitcher/>
         </div>
 
         {/* اليمين: قائمة التنقل */}

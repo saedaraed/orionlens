@@ -19,12 +19,12 @@ description: "Welcome to OrionLens website. Explore professional 360° Google St
 
 };
 
-import About from "./components/About";
-import FAQ from "./components/FAQ";
-import CustomSlider from "./components/FeaturedWorks";
-import HeroSection from "./components/HeroSection";
-import OurFeatures from "./components/OurFeaturesSection";
-import Services from "./components/ServicesSection";
+import About from "../components/About";
+import FAQ from "../components/FAQ";
+import CustomSlider from "../components/FeaturedWorks";
+import HeroSection from "../components/HeroSection";
+import OurFeatures from "../components/OurFeaturesSection";
+import Services from "../components/ServicesSection";
 import "./globals.css";
 
 export default function Home() {
