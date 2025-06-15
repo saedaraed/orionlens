@@ -2,17 +2,22 @@ export const metadata = {
   title: "Terms and Conditions | OrionLens",
   description: "Read the terms and conditions for using the OrionLens website and services.",
 };
-import Navbar from "../components/Navbar";
+// import { useTranslations } from "next-intl";
+import Navbar from "../../components/Navbar";
+import { getTranslations } from "next-intl/server";
 
-const Terms = () => {
+export default async function Terms() {
+  const t = await getTranslations("terms");
+
   return (
     <main className="font-cairo">
       <div className="bg-[#1A1A1A]">
         <Navbar />
-        <div className="md:w-[60%] w-[80%] mx-auto py-10">
-          <h2 className="text-[48px] font-bold text-white">
+        <div className="md:w-[60%] w-[80%] mx-auto py-20">
+          <h2 className="md:text-[48px] text-[30px] font-bold text-white">
             Terms & <span className="text-heading">Conditions </span>{" "}
           </h2>
+
           <p className="text-[20px] text-white/80">
             By accessing and using this website, you agree to comply with the following terms and conditions. Please read them carefully before using the site or purchasing any product.
           </p>
@@ -20,7 +25,7 @@ const Terms = () => {
       </div>
       <div className="md:w-[60%] w-[80%] mx-auto py-10">
         <div className="mb-6">
-          <h3 className="text-[25px] font-medium mb-2">Acceptance of Terms</h3>
+          <h3 className="text-[25px] font-medium mb-2">{t('pointOne')}</h3>
           <p className="text-[20px] text-white/80">
            By using this site, you acknowledge that you have read, understood, and agreed to these terms. If you do not agree to any part of them, please refrain from using the site.
           </p>
@@ -78,4 +83,4 @@ We reserve the right to update or modify these terms at any time. Changes will b
   );
 };
 
-export default Terms;
+// export default Terms;

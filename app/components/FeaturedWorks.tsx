@@ -25,7 +25,7 @@ const [ref, inView] = useInView({
   transition={{ duration: 0.8, ease: "easeOut" }}>
       <div className="flex flex-col items-start justify-start text-left w-fit mx-auto px-4">
         <span className="text-heading">FEATUERED WORKS</span>
-        <h2 className="md:text-[48px] text-[38px] font-bold text-white md:text-center text-left">
+        <h2 className="md:text-[48px] text-[30px] font-bold text-white md:text-center text-left">
           Immersive <span className="text-heading">Projects </span>That{" "}
           Speak{" "}
         </h2>

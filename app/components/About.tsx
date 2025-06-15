@@ -12,12 +12,12 @@ const About: React.FC<SectionProps> = ({ id }) => {
   return (
     <section
       id={id} ref={ref}
-      className=" container mx-auto px-4 relative z-10  flex flex-col md:flex-row items-center justify-between mt-[100px]"
+      className=" container w-[90%] mx-auto px-4 relative z-10  flex flex-col md:flex-row items-center justify-between mt-[100px]"
     >
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: 1, opacity: 1 }}
-        transition={{ duration: 1.2, ease: "easeInOut" }}
+        transition={{ delay: 1.2, duration: 1.2,  ease: "easeInOut" }}
         className="origin-left w-full md:w-1/2">
         <Image
           src="/assets/about.png"
@@ -34,7 +34,7 @@ const About: React.FC<SectionProps> = ({ id }) => {
         transition={{ delay: 1.2, duration: 1, ease: "easeInOut" }} className="w-full md:w-1/2 p-6 text-left font-cairo ">
         <div>
           <span className="text-heading">ABOUT US</span>
-          <h2 className="text-[48px] font-bold text-white">
+          <h2 className="md:text-[48px] text-[30px] font-bold text-white">
             WHO ARE <span className="text-heading">WE </span>?{" "}
           </h2>
           <div className="border border-heading w-[125px] h-[4px] bg-heading"></div>

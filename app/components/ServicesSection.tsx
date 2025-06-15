@@ -15,32 +15,41 @@ const Services: React.FC<SectionProps> = ({ id }) => {
       id={id}
       ref={ref}
       className="relative z-10  mt-[100px] bg-secondaryColor"
+  initial={{ opacity: 0, y: 100 }}
+  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+  transition={{ duration: 1.2  , ease: "easeOut"}}
     >
-      <div className="container mx-auto space-y-8 px-4 py-[80px]">
+      <div className="container w-[90%] mx-auto space-y-8 px-4 py-[80px]">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <motion.div
             initial={{ opacity: 0, y: -40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            className=" flex flex-col items-start justify-start text-left "
+            transition={{ duration: 1.6, delay: 0.2 }}
+            className="md:block hidden flex flex-col items-start justify-start text-left "
           >
             <span className="text-heading">OUR SERVICES</span>
-            <h2 className="text-[48px] font-bold text-white">
+            <h2 className="md:text-[48px] text-[30px] font-bold text-white">
               WHAT WE <br /> <span className="text-heading">OFFER</span>?{" "}
             </h2>
             <div className="border border-heading w-[125px] h-[4px] bg-heading"></div>
           </motion.div>
-
-{/*          
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
+           <motion.div
+            initial={{ opacity: 0, y: -40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-            transition={{ duration: 1.2, delay: 0.7 }}
-            className=" w-full grid grid-cols-1 md:grid-cols-2 gap-6"
-          > */}
+            transition={{ duration: 1.6, delay: 0.2 }}
+            className="w-full md:hidden block flex flex-col items-start justify-start text-left "
+          >
+            <span className="text-heading">OUR SERVICES</span>
+            <h2 className="md:text-[48px] text-[30px]  font-bold text-white">
+              WHAT WE  <span className="text-heading">OFFER</span>?{" "}
+            </h2>
+            <div className="border border-heading w-[125px] h-[4px] bg-heading"></div>
+          </motion.div>
+
+
             <MotionLink   initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-            transition={{ duration: 1.2, delay: 0.7 }} href="/services/google-business" className="w-full bg-black text-white hover:bg-white hover:text-black p-4 group cursor-pointer">
+            transition={{ duration: 1.6, delay: 0.7 }} href="/services/google-business" className="w-full bg-black text-white hover:bg-white hover:text-black p-4 group cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-10 "
@@ -75,7 +84,7 @@ const Services: React.FC<SectionProps> = ({ id }) => {
             </MotionLink>
             <MotionLink  initial={{ opacity: 0, y: 40 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-            transition={{ duration: 1.2, delay: 0.7 }}  href="/services/google-business" className="w-full bg-black text-white hover:bg-white hover:text-black p-4 group cursor-pointer">
+            transition={{ duration: 1.6, delay: 0.7 }}  href="/services/google-business" className="w-full bg-black text-white hover:bg-white hover:text-black p-4 group cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-10 "
@@ -133,7 +142,7 @@ const Services: React.FC<SectionProps> = ({ id }) => {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
-          transition={{ duration: 1.2, delay: 1.4 }}
+          transition={{ duration: 1.6, delay: 1.4 }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
             <Link href="/services/google-business" className="w-full  bg-black text-white hover:bg-white hover:text-black p-4 group cursor-pointer">

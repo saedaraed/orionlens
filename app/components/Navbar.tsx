@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [openLang, setOpenLang] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isMobileServicesDropdownOpen, setIsMobileServicesDropdownOpen] =
+    useState(false);
   const MenuIcon = (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -43,19 +45,22 @@ const Navbar = () => {
   );
 
   return (
-<nav className="absolute top-0 left-0 w-full z-50 text-white shadow-md ">
+    <nav className="absolute top-0 left-0 w-full z-50 text-white shadow-md ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
         {/* اليسار: اللوجو + اختيار اللغة */}
         <div className="flex items-center space-x-6">
           <div className="text-[25px] font-bold cursor-pointer select-none text-heading">
-         <Link href="/"> Orion <span className="text-white">Lens</span></Link>  
+            <Link href="/">
+              {" "}
+              Orion <span className="text-white">Lens</span>
+            </Link>
           </div>
 
           {/* اختيار اللغة */}
           <div className="relative">
             <button
               className="flex items-center space-x-2 bg-transparent text-sm"
-              onClick={() => setIsOpen(!isOpen)}
+              onClick={() => setOpenLang(!openLang)}
             >
               <svg
                 width="30"
@@ -76,7 +81,7 @@ const Navbar = () => {
               </svg>
             </button>
 
-            {isOpen && (
+            {openLang && (
               <div className="absolute bg-white text-black mt-2 p-2 rounded shadow-md">
                 <div className="flex items-center space-x-2 cursor-pointer">
                   <svg
@@ -126,7 +131,7 @@ const Navbar = () => {
               </div>
             )}
           </div>
-          <LanguageSwitcher/>
+          {/* <LanguageSwitcher/> */}
         </div>
 
         {/* اليمين: قائمة التنقل */}
@@ -134,15 +139,50 @@ const Navbar = () => {
           <li>
             <a href="/">Home</a>
           </li>
-           <li>
+          <li>
             <a href="#trust">Why Trust Us</a>
           </li>
           <li>
             <a href="#about">About</a>
           </li>
-         
-          <li>
-            <a href="#services">Services</a>
+
+          <li className="relative">
+            <button
+              onClick={() => setIsServicesDropdownOpen(!isServicesDropdownOpen)}
+              className="text-white hover:text-gray-300
+focus:outline-none"
+            >
+              Services
+            </button>
+            {isServicesDropdownOpen && (
+              <div className="absolute left-0 mt-2 w-48 bg-black shadow-lg py-1 z-20">
+                <Link href="/services/3d-virtual-tour" onClick={() => setIsServicesDropdownOpen(false)}>
+                  <span className="block px-4 py-2 text-sm textwhite hover:bg-[#1A1A1A]">
+                    3D Virtual Tour
+                  </span>
+                </Link>
+                <Link href="/services/drone-shot" onClick={() => setIsServicesDropdownOpen(false)}>
+                  <span className="block px-4 py-2 text-sm textwhite hover:bg-[#1A1A1A]">
+                    Drone Shot
+                  </span>
+                </Link>
+                <Link href="/services/google-business" onClick={() => setIsServicesDropdownOpen(false)}>
+                  <span className="block px-4 py-2 text-sm textwhite hover:bg-[#1A1A1A]">
+                    Google Business
+                  </span>
+                </Link>
+                <Link href="/services/graphic-design" onClick={() => setIsServicesDropdownOpen(false)}>
+                  <span className="block px-4 py-2 text-sm textwhite hover:bg-[#1A1A1A]">
+                    Graphic Design
+                  </span>
+                </Link>
+                <Link href="/services/it-services" onClick={() => setIsServicesDropdownOpen(false)}>
+                  <span className="block px-4 py-2 text-sm textwhite hover:bg-[#1A1A1A]">
+                    IT Services
+                  </span>
+                </Link>
+              </div>
+            )}
           </li>
           <li>
             <a href="#faq">FAQ</a>
@@ -172,23 +212,75 @@ const Navbar = () => {
           Orion <span className="text-white">Lens</span>
         </div>
         <ul className="md:hidden px-4 pb-4 space-y-4 font-medium shadow-inner  text-cairo mt-4">
-          <li>
-            <Link href="/">Home</Link>
+          <li className="hover:bg-[#1A1A1A] py-1">
+            <a href="/" onClick={() => setIsOpen(false)}>
+              Home
+            </a>
           </li>
-          <li>
-            <Link href="/">About</Link>
+          <li className="hover:bg-[#1A1A1A] py-1">
+            <a href="#trust" onClick={() => setIsOpen(false)}>
+              Why Trust Us
+            </a>
           </li>
-          <li>
-            <Link href="/">Why Trust Us</Link>
+          <li className="hover:bg-[#1A1A1A] py-1">
+            <a href="#about" onClick={() => setIsOpen(false)}>
+              About
+            </a>
           </li>
+
           <li>
-            <Link href="/">Services</Link>
+            <button
+              onClick={() =>
+                setIsMobileServicesDropdownOpen(!isMobileServicesDropdownOpen)
+              }
+              className="block py-1 hover:bg-[#1A1A1A] w-full
+text-left focus:outline-none"
+            >
+              Services
+            </button>
+            {isMobileServicesDropdownOpen && (
+              <div
+                className="pl-4 py-1 space-y-2
+ mt-2"
+              >
+                <Link href="/services/3d-virtual-tour" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 text-sm hover:bggray-600">
+                    3D Virtual Tour
+                  </span>
+                </Link>
+                <Link href="/services/drone-shot" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 text-sm hover:bggray-600">
+                    Drone Shot
+                  </span>
+                </Link>
+                <Link href="/services/google-business" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 text-sm hover:bggray-600">
+                    Google Business
+                  </span>
+                </Link>
+                <Link href="/services/graphic-design" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 text-sm hover:bggray-600">
+                    Graphic Design
+                  </span>
+                </Link>
+                <Link href="/services/it-services" onClick={() => setIsOpen(false)}>
+                  <span className="block py-2 text-sm hover:bggray-600">
+                    IT Services
+                  </span>
+                </Link>
+              </div>
+            )}
           </li>
-          <li>
-            <Link href="/">FAQ</Link>
+
+          <li className="hover:bg-[#1A1A1A] py-1">
+            <a href="#faq" onClick={() => setIsOpen(false)}>
+              FAQ
+            </a>
           </li>
-          <li>
-            <Link href="/">Contact</Link>
+          <li className="hover:bg-[#1A1A1A] py-1">
+            <a href="#contact" onClick={() => setIsOpen(false)}>
+              Contact
+            </a>
           </li>
         </ul>
       </div>

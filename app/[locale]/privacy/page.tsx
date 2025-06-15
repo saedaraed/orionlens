@@ -2,15 +2,15 @@ export const metadata = {
   title: "Privacy Policy | OrionLens",
   description: "Learn how OrionLens collects, uses, and protects your personal information.",
 };
-import Navbar from "../components/Navbar";
+import Navbar from "../../components/Navbar";
 
 const Privacy = () => {
   return (
     <main className="font-cairo">
       <div className="bg-[#1A1A1A]">
         <Navbar />
-        <div className="md:w-[60%] w-[80%] mx-auto py-10">
-          <h2 className="text-[48px] font-bold text-white">
+        <div className="md:w-[60%] w-[80%] mx-auto py-20">
+          <h2 className="md:text-[48px] text-[30px] font-bold text-white">
             Privacy <span className="text-heading">Policy</span>{" "}
           </h2>
           <p className="text-[20px] text-white/80">

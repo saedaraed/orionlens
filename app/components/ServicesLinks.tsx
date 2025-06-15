@@ -14,7 +14,7 @@ const ServicesLinks=()=>{
     return(
        <div className="bg-secondaryColor w-full mt-10">
       {links.map((link, i) => {
-        const isActive = pathname === link.href;
+const isActive = pathname.includes(link.href);
 
         return (
           <div

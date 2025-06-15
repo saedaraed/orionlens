@@ -25,9 +25,12 @@ import CustomSlider from "../components/FeaturedWorks";
 import HeroSection from "../components/HeroSection";
 import OurFeatures from "../components/OurFeaturesSection";
 import Services from "../components/ServicesSection";
-import "./globals.css";
+import "../globals.css";
+// import { getTranslations } from "next-intl/server";
 
-export default function Home() {
+export default async function Home() {
+    // const t = await getTranslations("homepage");
+  
   return (
     <main className="relative bg-black text-white overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-0 pointer-events-none flex justify-center items-center z-[9999]">

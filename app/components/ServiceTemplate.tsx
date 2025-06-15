@@ -29,7 +29,7 @@ export default function ServicePage({
         </div>
       </section>
 
-      <div className="container mx-auto flex flex-col md:flex-row gap-10 text-left">
+      <div className="container w-[85%] mx-auto flex flex-col md:flex-row gap-10 text-left">
         {/* Main Info */}
         <div className="w-full md:w-3/4 p-4">
           <section className="mt-10">

@@ -1,19 +1,32 @@
 "use client";
 import Button from "./Button";
 import Navbar from "./Navbar";
-import { motion } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
+import { useRef } from "react";
 
 const MotionButton = motion(Button);
 
 const HeroSection = () => {
+  const heroRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+
+  const translateY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
   return (
-    <section className="relative z-10 h-[100vh]">
+    <motion.section
+      ref={heroRef}
+      style={{ y: translateY, opacity }}
+      className="relative z-10 h-[100vh]"
+    >
       <Navbar />
       <div className="flex items-end">
         <motion.img
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 2, delay: 5.0 }}
+          transition={{ duration: 2, delay: 4.0 }}
           src="assets/photo-hero.png"
           alt="Hero"
           className="absolute bottom-0 w-full h-full object-cover max-h-[100vh] "
@@ -38,7 +51,7 @@ const HeroSection = () => {
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 8.0 }}
+            transition={{ duration: 1.2, delay: 7.0 }}
             className=" text-[25px] text-left font-bold"
           >
             Beyond visuals - an experience.
@@ -46,20 +59,22 @@ const HeroSection = () => {
           <motion.p
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, delay: 9.0 }}
+            transition={{ duration: 1.2, delay: 8.0 }}
             className=" text-[20px] text-left mt-2 mb-4"
           >
             Immersive visuals that tell your brand’s story — from sky to screen.
           </motion.p>
-          <MotionButton
-                
-            name="Contact Us"
-          />
+         <MotionButton
+ initial={{ opacity: 0, y: 40 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.5, delay: 0 }}
+  name="Contact Us" 
+/>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 2 }}
+          transition={{ duration: 1, delay: 1 }}
           className="absolute md:bottom-[40px] bottom-[20px]  text-[14px] md:text-[16px] right-[20px]  pointer-events-none  z-[1000]"
         >
           <div className="flex flex-col items-center space-y-2 text-white md:text-[10px] font-bold tracking-widest select-none">
@@ -72,7 +87,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut", delay: 1.4 }}
+        transition={{ duration: 1.2, ease: "easeOut", delay: 1.2 }}
         className="absolute top-0 right-0"
       >
         <svg
@@ -126,10 +141,10 @@ const HeroSection = () => {
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1.2, delay: 6.8 }}
-          className="absolute md:block hidden  md:top-40 top-[50%] md:left-[69%] left-[70%] transform -translate-x-1/2 text-white font-cairo text-xl z-50 w-[50%] text-center"
+          transition={{ duration: 1.2, delay: 5.8 }}
+          className="absolute  md:top-40 top-[50%] md:left-[69%] left-[70%] transform -translate-x-1/2 text-white font-cairo text-xl z-50 w-[50%] text-center"
         >
-          <h1 className="text-[40px] text-left font-bold leading-[1.2]">
+          <h1 className="md:text-[40px] text-[30px] text-left font-bold leading-[1.2]">
             CAPTURE REALITY <br /> WITH PRECISION
           </h1>
         </motion.div>
@@ -137,7 +152,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 1.2, delay: 2.6 }}
+        transition={{ duration: 1.2, delay: 1.6 }}
         className="absolute top-16 md:top-0  left-0 z-20"
       >
         <svg
@@ -158,9 +173,9 @@ const HeroSection = () => {
               width="774.5"
               height="522.5"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -192,7 +207,7 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1.2, delay: 3.8 }}
+        transition={{ duration: 1.2, delay: 2.8 }}
         className="absolute top-0 left-0 z-30"
       >
         <svg
@@ -213,9 +228,9 @@ const HeroSection = () => {
               width="794.5"
               height="349.5"
               filterUnits="userSpaceOnUse"
-              color-interpolation-filters="sRGB"
+              colorInterpolationFilters="sRGB"
             >
-              <feFlood flood-opacity="0" result="BackgroundImageFix" />
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
               <feColorMatrix
                 in="SourceAlpha"
                 type="matrix"
@@ -244,7 +259,7 @@ const HeroSection = () => {
           </defs>
         </svg>
       </motion.div>
-    </section>
+    </motion.section>
   );
 };
 

@@ -80,7 +80,7 @@ const OurFeatures: React.FC<SectionProps> = ({ id }) => {
     <section
       id={id}
       ref={ref}
-      className="container mx-auto px-4 relative z-10 mt-[100px]"
+      className="container w-[90%] mx-auto px-4 relative z-10 mt-[100px]"
     >
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 items-stretch">
         {cards.map((card, idx) => (
